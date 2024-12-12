@@ -15,7 +15,9 @@ oauth.register(
     client_kwargs={'scope': 'openid email profile'}
 )
 
-# Base de données temporaire (simulation)
+# Base de données temporaire (simulation) 
+
+#test
 users = {}
 
 # Route pour l'accueil
