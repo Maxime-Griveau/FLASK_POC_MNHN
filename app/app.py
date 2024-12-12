@@ -66,5 +66,5 @@ def logout():
     return redirect(url_for("home"))
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Utilisez le port de Render ou 5000 par défaut
+    port = int(os.environ.get("PORT"))  # Utilisez le port de Render ou 5000 par défaut
     app.run(host="0.0.0.0", port=port, debug=True)
