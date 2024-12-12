@@ -21,7 +21,7 @@ users = {}
 # Route pour l'accueil
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("app/templates/home.html")
 
 # Route pour le login avec ORCID
 @app.route("/login")
@@ -57,7 +57,7 @@ def register():
 def dashboard():
     if "user" not in session:
         return redirect(url_for("login"))
-    return render_template("dashboard.html", user=session["user"])
+    return render_template("app/templates/dashboard.html", user=session["user"])
 
 # Route pour se déconnecter
 @app.route("/logout")
