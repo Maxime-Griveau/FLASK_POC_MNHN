@@ -1,0 +1,14 @@
+{% extends "partials/conteneur.html" %}
+
+{% block body %}
+
+
+<h1>Déconnexion en cours...</h1>
+<p>Vous êtes en train de vous déconnecter, merci de patienter.</p>
+
+<script>
+    // Effectuer la déconnexion avec Keycloak
+    window.location.href = "{{ keycloak_logout_url }}";
+</script>
+
+{%endblock%}

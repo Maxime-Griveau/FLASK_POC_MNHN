@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include "partials/css.html" %}
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Import de D3.JS -->
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>D&A - Datavisualisation</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="/statics/css/styles_3.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+      <div>
+        <h1 class="ml-4 text-light">MNHN - Application test pour ELViS</h1>
+    </div>
+    </nav>
+
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <!-- Navbar latéral -->
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <!-- Navigation entre les pages -->
+                        <div class="sb-sidenav-menu-heading">Navigation</div>
+                        <a class="nav-link" href="{{ url_for('accueil') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-sign-in-alt"></i></div>
+                            Accueil
+                        </a>
+
+                        
+                        {% if session.get('user') %}
+                        <a class="nav-link" href="{{ url_for('profile') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Bonjour, {{ session['user'].get('name', 'Utilisateur') }}
+                        </a>
+                        <a class="nav-link" href="{{ url_for('logout') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                            Se déconnecter
+                        </a>
+                        {% else %}
+                        <a class="nav-link" href="{{ url_for('login') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-sign-in-alt"></i></div>
+                            Se connecter
+                        </a>
+                        {% endif %}
+                        
+
+
+                        <!-- Affichage des messages flash -->
+                        <div class="container">
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                            <div class="row">
+                                <div class="col">
+                                    {% for category, message in messages %}
+                                    <div class="alert alert-{{category}}" role="alert">{{ message }}</div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endwith %}
+
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Cœur de la page -->
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+
+
+                    {% block body %}{% endblock %}
+
+
+                </div>
+        </div>
+        </main>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

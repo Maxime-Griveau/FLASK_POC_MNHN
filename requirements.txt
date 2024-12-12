@@ -1,0 +1,10 @@
+flask
+python-dotenv
+Jinja2
+oauthlib
+urllib3
+authlib
+requests
+flask_session
+keycloak
+
