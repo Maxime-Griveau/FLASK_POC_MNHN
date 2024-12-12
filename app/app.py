@@ -26,7 +26,7 @@ def home():
 # Route pour le login avec ORCID
 @app.route("/login")
 def login():
-    redirect_uri = url_for("authorize", _external=True)
+    redirect_uri = "https://keycloak-production-8f36.up.railway.app/realms/myrealm/.well-known/openid-configuration"
     return oauth.keycloak.authorize_redirect(redirect_uri)
 
 # Route de callback après l'authentification
