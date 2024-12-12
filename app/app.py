@@ -1,3 +1,4 @@
+import os
 from flask import Flask, redirect, url_for, session, render_template
 from authlib.integrations.flask_client import OAuth
 
@@ -65,4 +66,5 @@ def logout():
     return redirect(url_for("home"))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Utilisez le port de Render ou 5000 par défaut
+    app.run(host="0.0.0.0", port=port, debug=True)
