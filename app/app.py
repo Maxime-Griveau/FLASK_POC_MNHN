@@ -10,8 +10,8 @@ oauth = OAuth(app)
 oauth.register(
     name='keycloak',
     client_id='flask-client',  # ID du client Keycloak
-    client_secret='2jh3vXTjRWUpmQ4GATKOKHrfwCAPssQh',  # Secret Keycloak
-    server_metadata_url='http://localhost:8080/realms/myrealm/.well-known/openid-configuration',
+    client_secret='GUWM9YghDu9VaP91SJBTI9caQIaCJ94R',  # Secret Keycloak
+    server_metadata_url='https://keycloak-production-8f36.up.railway.app/realms/myrealm/.well-known/openid-configuration',
     client_kwargs={'scope': 'openid email profile'}
 )
 
